@@ -12,6 +12,10 @@ async function main() {
   console.log(
     `Hello, Node Web3 Typescript app from ${process.env.ETH_NETWORK} network at block ${currentBlock}`,
   );
+
+  const address = process.argv[2];
+  const balance = ethers.formatEther(await provider.getBalance(address));
+  console.log(`Account: ${address} Balance: ${balance}`);
 }
 
 main().catch((error) => {
